@@ -101,12 +101,13 @@ const handleSubmit = async (e) => {
   if (response.ok) {
     const data = await response.json();
     const parsedData = data.reply.trim(); // trims any trailing spaces/'\n'
+    typeText(messageDiv, parsedData);
     let utterance = new SpeechSynthesisUtterance(data.reply);
     speechSynthesis.cancel();
     utterance.volume = 200;
     utterance.rate = 1.2;
     speechSynthesis.speak(utterance);
-    typeText(messageDiv, parsedData);
+    
   } else {
     const err = await response.text();
 
