@@ -85,13 +85,14 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv);
 
-  const response = await fetch("https://openai-nodejs-api.cyclic.app/ai/chat", {
+  const response = await fetch("https://https://openai-nodejs-api.cyclic.app/ai/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      prompt: data.get("prompt"),
+    //  prompt: data.get("prompt"),
+        prompt: 'Hello'
     }),
   });
 
